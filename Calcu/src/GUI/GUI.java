@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import main.AbstractFactory;
+import main.Produccion;
+import operaciones_concretas.Aritmetica;
 
 /**
  *
@@ -49,7 +51,7 @@ public class GUI extends JPanel {
         buttondiv = new JButton("Dividir");
         buttondiv.setBounds(new Rectangle(180, 110, widthB, heightB));
 
-        buttonmul = new JButton("Dividir");
+        buttonmul = new JButton("Multiplicar");
         buttonmul.setBounds(new Rectangle(180, 150, widthB, heightB));
         
         textF1.setEditable(true);
@@ -59,10 +61,60 @@ public class GUI extends JPanel {
         buttonsum.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                Double n1=Double.parseDouble(textF1.getText());
-                Double n2=Double.parseDouble(textF2.getText());
-                Double sum=n1+n2;
-                textF3.setText(textF1.getText());
+                Double n1 = Double.parseDouble(textF1.getText());
+                Double n2 = Double.parseDouble(textF2.getText());
+                factory = Produccion.getFactory("operaciones concretas");
+                Aritmetica sum = factory.getAritmetica("Suma");
+                double r = 0;
+                r = sum.efectuar(n1,n2);
+                
+
+                textF3.setText(String.valueOf(r));
+            }
+
+        });
+        buttonres.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                Double n1 = Double.parseDouble(textF1.getText());
+                Double n2 = Double.parseDouble(textF2.getText());
+                factory = Produccion.getFactory("operaciones concretas");
+                Aritmetica res = factory.getAritmetica("Resta");
+                double r = 0;
+                r = res.efectuar(n1,n2);
+                
+
+                textF3.setText(String.valueOf(r));
+            }
+
+        });
+        buttondiv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                Double n1 = Double.parseDouble(textF1.getText());
+                Double n2 = Double.parseDouble(textF2.getText());
+                factory = Produccion.getFactory("operaciones concretas");
+                Aritmetica div = factory.getAritmetica("Division");
+                double r = 0;
+                r = div.efectuar(n1,n2);
+                
+
+                textF3.setText(String.valueOf(r));
+            }
+
+        });
+        buttonmul.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                Double n1 = Double.parseDouble(textF1.getText());
+                Double n2 = Double.parseDouble(textF2.getText());
+                factory = Produccion.getFactory("operaciones concretas");
+                Aritmetica mul = factory.getAritmetica("Multiplicacion");
+                double r = 0;
+                r = mul.efectuar(n1,n2);
+                
+
+                textF3.setText(String.valueOf(r));
             }
 
         });
