@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -24,7 +25,7 @@ import operaciones_concretas.Convertor;
 public class GUI extends JPanel {
     
     public int WIDTH = 350, widthTF = 120, widthB = 120;
-    public int HEIGHT = 350, heightTF = 30, heightB = 20;
+    public int HEIGHT = 300, heightTF = 30, heightB = 20;
     public JTextField textF1, textF2,textF3;
     public JButton buttonsum, buttonres,buttondiv,buttonmul,buttonbi;
     AbstractFactory factory;
@@ -73,8 +74,10 @@ public class GUI extends JPanel {
                 double r = 0;
                 r = sum.efectuar(n1,n2);
                 
-
                 textF3.setText(String.valueOf(r));
+                textF1.setText("");
+                textF2.setText("");
+                
             }
 
         });
@@ -90,6 +93,9 @@ public class GUI extends JPanel {
                 
 
                 textF3.setText(String.valueOf(r));
+                textF1.setText("");
+                textF2.setText("");
+                
             }
 
         });
@@ -105,6 +111,9 @@ public class GUI extends JPanel {
                 
 
                 textF3.setText(String.valueOf(r));
+                textF1.setText("");
+                textF2.setText("");
+                
             }
 
         });
@@ -120,6 +129,9 @@ public class GUI extends JPanel {
                 
 
                 textF3.setText(String.valueOf(r));
+                textF1.setText("");
+                textF2.setText("");
+                
             }
 
         });
@@ -135,6 +147,9 @@ public class GUI extends JPanel {
                 //System.out.println(r);
 
                 textF3.setText(r);
+                textF1.setText("");
+                textF2.setText("");
+                
             }
 
         });
@@ -143,10 +158,15 @@ public class GUI extends JPanel {
         add(textF2);
         add(textF3);
         add(buttonsum);
+        buttonsum.setBackground(Color.ORANGE);
         add(buttonres);
+        buttonres.setBackground(Color.ORANGE);
         add(buttondiv);
+        buttondiv.setBackground(Color.ORANGE);
         add(buttonmul);
+        buttonmul.setBackground(Color.ORANGE);
         add(buttonbi);
+        buttonbi.setBackground(Color.ORANGE);
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
