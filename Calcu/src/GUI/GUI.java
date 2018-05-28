@@ -23,8 +23,8 @@ import operaciones_concretas.Convertor;
  */
 public class GUI extends JPanel {
     
-    public int WIDTH = 300, widthTF = 120, widthB = 80;
-    public int HEIGHT = 300, heightTF = 30, heightB = 20;
+    public int WIDTH = 350, widthTF = 120, widthB = 120;
+    public int HEIGHT = 350, heightTF = 30, heightB = 20;
     public JTextField textF1, textF2,textF3;
     public JButton buttonsum, buttonres,buttondiv,buttonmul,buttonbi;
     AbstractFactory factory;
@@ -56,7 +56,7 @@ public class GUI extends JPanel {
         buttonmul.setBounds(new Rectangle(180, 150, widthB, heightB));
       
        
-        buttonbi = new JButton("Convertir a Bonario");
+        buttonbi = new JButton("Num Binario");
         buttonbi.setBounds(new Rectangle(180, 190, widthB, heightB));
         
         textF1.setEditable(true);
