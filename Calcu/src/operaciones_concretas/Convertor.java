@@ -10,5 +10,5 @@ package operaciones_concretas;
  * @author LN710Q
  */
 public interface Convertor {
-    double efectuar();
+    String efectuar(int num);
 }

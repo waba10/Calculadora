@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import main.AbstractFactory;
 import main.Produccion;
 import operaciones_concretas.Aritmetica;
+import operaciones_concretas.Convertor;
 
 /**
  *
@@ -25,7 +26,7 @@ public class GUI extends JPanel {
     public int WIDTH = 300, widthTF = 120, widthB = 80;
     public int HEIGHT = 300, heightTF = 30, heightB = 20;
     public JTextField textF1, textF2,textF3;
-    public JButton buttonsum, buttonres,buttondiv,buttonmul;
+    public JButton buttonsum, buttonres,buttondiv,buttonmul,buttonbi;
     AbstractFactory factory;
 
     public GUI() {
@@ -53,6 +54,10 @@ public class GUI extends JPanel {
 
         buttonmul = new JButton("Multiplicar");
         buttonmul.setBounds(new Rectangle(180, 150, widthB, heightB));
+      
+       
+        buttonbi = new JButton("Convertir a Bonario");
+        buttonbi.setBounds(new Rectangle(180, 190, widthB, heightB));
         
         textF1.setEditable(true);
         textF2.setEditable(true);
@@ -118,6 +123,21 @@ public class GUI extends JPanel {
             }
 
         });
+        buttonbi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                int n1 = Integer.parseInt(textF1.getText());
+                
+                factory = Produccion.getFactory("operaciones concretas");
+                Convertor bi = factory.getConvertor("Binario");
+                String r;
+                r = bi.efectuar(n1);
+                //System.out.println(r);
+
+                textF3.setText(r);
+            }
+
+        });
 
         add(textF1);
         add(textF2);
@@ -126,6 +146,7 @@ public class GUI extends JPanel {
         add(buttonres);
         add(buttondiv);
         add(buttonmul);
+        add(buttonbi);
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }

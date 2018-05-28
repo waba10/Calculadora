@@ -12,8 +12,29 @@ package operaciones_concretas;
 public class Binario implements Convertor{
 
     @Override
-    public double efectuar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String efectuar(int num) {
+        String binario = "";
+        if (num > 0) {
+            while(num>0){
+                if(num%2==0){
+                    binario="0" + binario;
+                }
+                else{
+                    binario="1"+ binario;
+                }
+                num=(int) num/2;
+            }  
+        }
+        else if(num==0){
+                    binario="0";
+                    }
+        else{
+            return "No es posible";
+        }
+        //System.out.println(binario);
+        
+        
+        return binario;
     }
     
 }
